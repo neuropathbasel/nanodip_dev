@@ -21,7 +21,7 @@ barcodes="barcode01 barcode02 barcode03 barcode04 barcode05 barcode06 barcode07 
 # data pathes
 inputdir=/data/$samplename
 #outputdir=/data/nanodip_output/$samplename
-basecalldir=/data/nanodip_bascalling
+basecalldir=/data/nanodip_basecalling
 tmpdir=/data/dorado_tmp
 
 # binaries & reference data
@@ -53,6 +53,7 @@ for f5 in `find $inputdir -name '*.fast5'`; do
 	allbam=$bcd/bam_all.bam
 	if [ -f $allbam ]; then
   	echo "File "$allbam" exists, skipping basecalling."
+  	numbercalled=$((numbercalled+1))
 	else
   	echo "Generating "$allq" by basecalling."
 		$doradobin basecaller --device cuda:all --batchsize 256 $bcmodelpath/$bcmodel $d5 > $allbam

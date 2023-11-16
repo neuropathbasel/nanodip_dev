@@ -174,7 +174,7 @@ epidipTmp="/data/epidip_temp"                       # EpiDiP functionality, temp
 fileHideList=["pings",                              # list of files and folders to be exluded from parsing
               "reads","queued_reads","core-dump-db","lost+found","intermediate","minimap_data","nanodip_tmp","nanodip_output",
               "nanodip_reports","non-ont","raw_for_playback","user_scripts","playback_raw_runs",".Trash-1000",
-              "epidip_temp","bismark_output","persistence","recall","dorado_tmp","doradolog","devices","nanodip_bascalling"]
+              "epidip_temp","bismark_output","persistence","recall","dorado_tmp","doradolog","devices","nanodip_basecalling"]
 nanodipOutputDir="/data/nanodip_output" # minknowDataDir+"/nanodip_output"   # location to write intermediate analysis data, i.e. methylation and alignment files
 nanodipReportDir="/data/nanodip_reports" # minknowDataDir+"/nanodip_reports"  # location to write reports and figures
 mk_manager_svc_logpath="/var/log/minknow/mk_manager_svc_log-0.txt" # location of the MinKNOW software log (contains version information, etc.)
@@ -652,7 +652,7 @@ def basecallOneFast5(sampleId,basecallModel,barcodeSet):
     if len(bclogtxt)>200:
         logend=bclogtxt[(len(bclogtxt)-200):]
     summarypos=logend.find(summarySepString)
-    summarytxt="It is likely that a basecalling error occurred.<hr><br>"
+    summarytxt="Basecalling completed or stopped.<hr><br>"
     if summarypos>0:
         summarytxt=logend[summarypos+len(summarySepString):]+"<hr><br>"
     return summarytxt+bclogtxt
