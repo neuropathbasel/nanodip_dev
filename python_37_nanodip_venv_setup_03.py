@@ -48,7 +48,7 @@ pip install seaborn
 pip install scikit-learn
 pip install neuralnetwork
 pip install tqdm
-pip install umap-learn
+pip install umap-learn==0.5.3
 pip install xhtml2pdf==0.2.5 # 20220308 discovered bug in current reportlab version, hence the version pinning
 
 pip uninstall minknow_api
